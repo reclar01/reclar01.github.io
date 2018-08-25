@@ -1,4 +1,4 @@
-
+// let startButton = document.getElementById("start");
 let library = [{animal:["snake","lion","eagle","elephant","buffalo","squirrel","badger","alligator","bear","beaver"]},{fruit:["apple","orange","lemon","cherry","banana","blueberry","coconut","avocado","blackberry","grapefruit"]},{name:["matthew","dalton","robert","alissa","dreima","allen","alex","jessica","hannah","scott"]}];
 
 let rand = library[Math.floor(Math.random() * library.length)];
@@ -28,37 +28,26 @@ blankWordText = blankWordText.join("");
 blankWord.innerHTML = blankWordText;
 
 function clickSubmit(){
-<<<<<<< HEAD
+    if(inputText.value.length > 1){
+        alert("Please only select one letter");
+        inputText.value = "";
+        return;
+    }
+    inputText.value = inputText.value.toLowerCase();
 if(inputText.value === ""){
     alert("Please submit a letter");
     return;
 }
-=======
-    if(inputText.value === ""){
-        alert("Please select a letter");
-        return;
-    }
-    inputText.value = inputText.value.toLowerCase();
-
->>>>>>> 8cfdcb4442c0892a5fbd6794d0440919b0013100
     answer = answer.split("");
     blankWordText = blankWordText.split("");
     if(mistakes.indexOf(inputText.value)>=0){
             alert("Letter already used");
-<<<<<<< HEAD
             inputText.value="";
-=======
-            inputText.value = "";
->>>>>>> 2d9af175a66f29cc69207787caeb3d2d4824590a
             return;
     }
     if(blankWordText.indexOf(inputText.value)>=0){
         alert("Letter already used");
-<<<<<<< HEAD
         inputText.value="";
-=======
-        inputText.value = "";
->>>>>>> 2d9af175a66f29cc69207787caeb3d2d4824590a
         return;
 }
     if (answer.indexOf(inputText.value) < 0) {
@@ -101,25 +90,15 @@ if(inputText.value === ""){
              if(blankWordText === answer){
                 submitButton.parentNode.removeChild(submitButton);
                  alert("You Win!");
-<<<<<<< HEAD
-                 submitButton.parentNode.removeChild(submitButton);
-=======
                  inputText.value = "";
->>>>>>> 2d9af175a66f29cc69207787caeb3d2d4824590a
              }
              mistakeLetters.innerHTML = mistakes;
              if(mistakes.length === 7){
                  submitButton.parentNode.removeChild(submitButton);
                  alert("You Lose!");
-<<<<<<< HEAD
-                 submitButton.parentNode.removeChild(submitButton);
-             }
-             inputText.value="";
-=======
                  inputText.value = "";
              }
              inputText.value = "";
->>>>>>> 2d9af175a66f29cc69207787caeb3d2d4824590a
 }
 
 function pickAnswer(obj) {
