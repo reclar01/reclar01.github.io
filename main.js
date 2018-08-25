@@ -1,4 +1,4 @@
-// let startButton = document.getElementById("start");
+
 let library = [{animal:["snake","lion","eagle","elephant","buffalo","squirrel","badger","alligator","bear","beaver"]},{fruit:["apple","orange","lemon","cherry","banana","blueberry","coconut","avocado","blackberry","grapefruit"]},{name:["matthew","dalton","robert","alissa","dreima","allen","alex","jessica","hannah","scott"]}];
 
 let rand = library[Math.floor(Math.random() * library.length)];
@@ -6,6 +6,9 @@ let rand = library[Math.floor(Math.random() * library.length)];
 let answer = pickAnswer(rand);
 
 let hint = findHint(rand,answer);
+let img = document.getElementById("gallow");
+let mistakeLetters = document.getElementById("letter-bank");
+let mistakes = [];
 
 let submitButton = document.getElementById("input-button");
 let inputText = document.getElementById("input-text");
@@ -13,7 +16,7 @@ let inputText = document.getElementById("input-text");
 
 let category = document.getElementById("category");
 
-category.innerHTML= "The word you are looking for is a " + hint;
+category.innerHTML= "Word Category: " + hint;
 
 let blankWord = document.getElementById("blank-word");
 let blankWordText = [];
@@ -25,8 +28,64 @@ blankWordText = blankWordText.join("");
 blankWord.innerHTML = blankWordText;
 
 function clickSubmit(){
+<<<<<<< HEAD
+if(inputText.value === ""){
+    alert("Please submit a letter");
+    return;
+}
+=======
+    if(inputText.value === ""){
+        alert("Please select a letter");
+        return;
+    }
+    inputText.value = inputText.value.toLowerCase();
+
+>>>>>>> 8cfdcb4442c0892a5fbd6794d0440919b0013100
     answer = answer.split("");
     blankWordText = blankWordText.split("");
+    if(mistakes.indexOf(inputText.value)>=0){
+            alert("Letter already used");
+<<<<<<< HEAD
+            inputText.value="";
+=======
+            inputText.value = "";
+>>>>>>> 2d9af175a66f29cc69207787caeb3d2d4824590a
+            return;
+    }
+    if(blankWordText.indexOf(inputText.value)>=0){
+        alert("Letter already used");
+<<<<<<< HEAD
+        inputText.value="";
+=======
+        inputText.value = "";
+>>>>>>> 2d9af175a66f29cc69207787caeb3d2d4824590a
+        return;
+}
+    if (answer.indexOf(inputText.value) < 0) {
+        mistakes.push(inputText.value);
+        console.log(mistakes);
+        if(mistakes.length === 1){
+            img.src="images/head.jpg";
+        }
+        if(mistakes.length === 2){
+            img.src="images/body.jpg";
+        }
+        if(mistakes.length === 3){
+            img.src="images/arm1.jpg";
+        }
+        if(mistakes.length === 4){
+            img.src="images/arm2.jpg";
+        }
+        if(mistakes.length === 5){
+            img.src="images/leg1.jpg";
+        }
+        if(mistakes.length === 6){
+            img.src="images/leg2.jpg";
+        }
+        if(mistakes.length === 7){
+            img.src="images/didntdoit.jpg";
+        }
+    }
     for(let j=0; j<answer.length; j++){
         if(inputText.value === answer[j]){
             blankWordText[j] = answer[j];
@@ -40,8 +99,27 @@ function clickSubmit(){
      blankWordText = blankWordText.join("");
              answer= answer.join("");
              if(blankWordText === answer){
+                submitButton.parentNode.removeChild(submitButton);
                  alert("You Win!");
+<<<<<<< HEAD
+                 submitButton.parentNode.removeChild(submitButton);
+=======
+                 inputText.value = "";
+>>>>>>> 2d9af175a66f29cc69207787caeb3d2d4824590a
              }
+             mistakeLetters.innerHTML = mistakes;
+             if(mistakes.length === 7){
+                 submitButton.parentNode.removeChild(submitButton);
+                 alert("You Lose!");
+<<<<<<< HEAD
+                 submitButton.parentNode.removeChild(submitButton);
+             }
+             inputText.value="";
+=======
+                 inputText.value = "";
+             }
+             inputText.value = "";
+>>>>>>> 2d9af175a66f29cc69207787caeb3d2d4824590a
 }
 
 function pickAnswer(obj) {
